@@ -40,7 +40,7 @@ curl --request POST "https://api.atlassian.com/jira/deployments/0.1/cloud/$cloud
       ],
       "displayName": "v2.8",
       "url": "http://example.com",
-      "description": "Updating APIs to v2.8",
+      "description": "${BUILD_PIPELINE_NAME}",
       "lastUpdated": "2021-03-02T23:28:23.000Z",
       "state": "successful",
       "pipeline": {
