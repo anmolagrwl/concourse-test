@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Hello, world!"
+# echo "Hello, world!"
 
 # echo $JIRA_INSTANCE
 
@@ -21,38 +21,40 @@ access_token=$(curl --request POST 'https://api.atlassian.com/oauth/token' \
 
 # echo $access_token
 
+timestamp=`date "+%Y-%m-%d_%H:%M:%SZ"`
+
 curl --request POST "https://api.atlassian.com/jira/deployments/0.1/cloud/$cloud_id/bulk" \
 --header "From: ${email_id:-leave-me-alone}" \
 --header "Authorization: Bearer $access_token" \
 --header 'Content-Type: application/json' \
---data-raw '{
-  "deployments": [
+--data-raw "{
+  \"deployments\": [
     {
-      "deploymentSequenceNumber": 21,
-      "updateSequenceNumber": 1,
-      "associations": [
+      \"deploymentSequenceNumber\": 21,
+      \"updateSequenceNumber\": 1,
+      \"associations\": [
         {
-          "associationType": "issueIdOrKeys",
-          "values": [
-            "TST-11"
+          \"associationType\": \"issueIdOrKeys\",
+          \"values\": [
+            \"TST-11\"
           ]
         }
       ],
-      "displayName": "v2.8",
-      "url": "http://example.com",
-      "description": "Updating APIs to v2.8",
-      "lastUpdated": "2021-03-02T23:28:23.000Z",
-      "state": "successful",
-      "pipeline": {
-        "id": "gfhd12hj33fdy",
-        "displayName": "API updates - 8",
-        "url": "http://example.com/pipeline/gfhd12hj33fdy"
+      \"displayName\": \"${BUILD_NAME}\",
+      \"url\": \"${ATC_EXTERNAL_URL}\",
+      \"description\": \"${BUILD_JOB_NAME}\",
+      \"lastUpdated\": $timestamp,
+      \"state\": \"successful\",
+      \"pipeline\": {
+        \"id\": \"gfhd12hj33fdy\",
+        \"displayName\": ${BUILD_PIPELINE_NAME},
+        \"url\": \"http://example.com/pipeline/gfhd12hj33fdy\"
       },
-      "environment": {
-        "id": "production",
-        "displayName": "Production",
-        "type": "production"
+      \"environment\": {
+        \"id\": \"production\",
+        \"displayName\": \"Production\",
+        \"type\": \"production\"
       }
     }
   ]
-}'
+}"
