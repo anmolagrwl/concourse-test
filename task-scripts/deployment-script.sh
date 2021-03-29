@@ -45,7 +45,7 @@ curl --request POST "https://api.atlassian.com/jira/deployments/0.1/cloud/$cloud
       "state": "successful",
       "pipeline": {
         "id": "gfhd12hj33fdy",
-        "displayName": ${BUILD_PIPELINE_NAME},
+        "displayName": "API updates - 8",
         "url": "http://example.com/pipeline/gfhd12hj33fdy"
       },
       "environment": {
