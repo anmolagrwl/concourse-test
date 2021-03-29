@@ -56,3 +56,8 @@ curl --request POST "https://api.atlassian.com/jira/deployments/0.1/cloud/$cloud
     }
   ]
 }'
+
+echo ${BUILD_PIPELINE_NAME}
+echo ${BUILD_NAME}
+echo ${ATC_EXTERNAL_URL}
+echo ${BUILD_JOB_NAME}
