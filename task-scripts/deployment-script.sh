@@ -2,24 +2,24 @@
 
 echo "Hello, world!"
 
-echo "${JIRA_INSTANCE}"
+echo $JIRA_INSTANCE
 
-# cloud_id=$(\
-#   curl "${JIRA_INSTANCE}/_edge/tenant_info" | \
-#   jq --raw-output '.cloudId')
+cloud_id=$(\
+  curl "${JIRA_INSTANCE}/_edge/tenant_info" | \
+  jq --raw-output '.cloudId')
 
-# echo $cloud_id
+echo $cloud_id
 
-# access_token=$(curl --request POST 'https://api.atlassian.com/oauth/token' \
-# --header 'Content-Type: application/json' \
-# --data-raw "{
-#     \"audience\": \"api.atlassian.com\", 
-#     \"grant_type\":\"client_credentials\",
-#     \"client_id\": \"$CLIENT_ID\",
-#     \"client_secret\": \"$CLIENT_SECRET\"
-# }" | jq --raw-output '.access_token')
+access_token=$(curl --request POST 'https://api.atlassian.com/oauth/token' \
+--header 'Content-Type: application/json' \
+--data-raw "{
+    \"audience\": \"api.atlassian.com\", 
+    \"grant_type\":\"client_credentials\",
+    \"client_id\": \"$CLIENT_ID\",
+    \"client_secret\": \"$CLIENT_SECRET\"
+}" | jq --raw-output '.access_token')
 
-# echo $access_token
+echo $access_token
 
 # curl --request POST "https://api.atlassian.com/jira/deployments/0.1/cloud/$cloud_id/bulk" \
 # --header "From: ${email_id:-leave-me-alone}" \
