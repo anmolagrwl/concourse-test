@@ -2,7 +2,7 @@
 
 echo "Hello, world!"
 
-echo $JIRA_INSTANCE
+echo "${JIRA_INSTANCE}"
 
 # cloud_id=$(\
 #   curl "${JIRA_INSTANCE}/_edge/tenant_info" | \
