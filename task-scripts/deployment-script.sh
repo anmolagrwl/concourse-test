@@ -40,7 +40,7 @@ curl --request POST "https://api.atlassian.com/jira/deployments/0.1/cloud/$cloud
       ],
       "displayName": "v2.8",
       "url": "http://example.com",
-      "description": "${BUILD_PIPELINE_NAME}",
+      "description": "Updating APIs to v2.8",
       "lastUpdated": "2021-03-02T23:28:23.000Z",
       "state": "successful",
       "pipeline": {
@@ -56,8 +56,3 @@ curl --request POST "https://api.atlassian.com/jira/deployments/0.1/cloud/$cloud
     }
   ]
 }'
-
-echo $BUILD_PIPELINE_NAME
-echo $BUILD_NAME
-echo $ATC_EXTERNAL_URL
-echo $BUILD_JOB_NAME
