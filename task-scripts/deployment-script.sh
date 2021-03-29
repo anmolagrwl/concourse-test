@@ -28,7 +28,7 @@ curl --request POST "https://api.atlassian.com/jira/deployments/0.1/cloud/$cloud
 --data-raw '{
   "deployments": [
     {
-      "deploymentSequenceNumber": 20,
+      "deploymentSequenceNumber": 21,
       "updateSequenceNumber": 1,
       "associations": [
         {
