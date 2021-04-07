@@ -53,14 +53,14 @@ response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/c
           ]
         }
       ],
-      \"displayName\": \"${BUILD_NAME}\",
+      \"displayName\": \"random name\",
       \"url\": \"http://example.com\",
       \"description\": \"Updating APIs to v2.9\",
       \"lastUpdated\": \"2021-03-02T23:29:23.000Z\",
       \"state\": \"successful\",
       \"pipeline\": {
         \"id\": \"gfhd12hj33fdy\",
-        \"displayName\": "${BUILD_PIPELINE_NAME}",
+        \"displayName\": "pipeline name",
         \"url\": \"http://example.com/pipeline/gfhd12hj33fdy\"
       },
       \"environment\": {
