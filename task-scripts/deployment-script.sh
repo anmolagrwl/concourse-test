@@ -8,6 +8,7 @@ export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 pwd
 git init
 git remote add origin https://github.com/anmolonruby/concourse-test.git
+git branch -M main
 commit_name=$(git log -1 --pretty=%B)
 echo $commit_name
 
