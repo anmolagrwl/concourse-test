@@ -60,7 +60,7 @@ response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/c
       \"state\": \"successful\",
       \"pipeline\": {
         \"id\": \"gfhd12hj33fdy\",
-        \"displayName\": "pipeline name",
+        \"displayName\": \"pipeline name\",
         \"url\": \"http://example.com/pipeline/gfhd12hj33fdy\"
       },
       \"environment\": {
