@@ -7,7 +7,7 @@ export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
 pwd
 # git init
-git remote pull origin https://github.com/anmolonruby/concourse-test.git
+git clone https://github.com/anmolonruby/concourse-test
 cd concourse-test
 git checkout -b main
 commit_name=$(git log -1 --pretty=%B)
