@@ -4,6 +4,7 @@ echo "Hello, world!"
 
 echo $JIRA_INSTANCE
 
+cd ..
 branch_name=$(git log -1 --pretty=%B)
 
 echo $branch_name
