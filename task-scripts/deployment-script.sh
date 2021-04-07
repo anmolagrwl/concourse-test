@@ -1,17 +1,22 @@
 #!/bin/sh
 
-echo "Hello, world!"
+# echo "Hello, world!"
 
-echo $JIRA_INSTANCE
-export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+# echo $JIRA_INSTANCE
+# export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
-pwd
+# pwd
 # git init
 git clone https://github.com/anmolonruby/concourse-test
 cd concourse-test
 git checkout -b main
 commit_name=$(git log -1 --pretty=%B)
-echo $commit_name
+# echo $commit_name
+issue_key=0
+if [[ $commit_name =~ ^[a-zA-Z]+-[0-9]+ ]]; then
+        issue_key=${BASH_REMATCH[0]}
+fi
+echo $issue_key
 
 cloud_id=$(\
   curl "${JIRA_INSTANCE}/_edge/tenant_info" | \
@@ -30,7 +35,7 @@ access_token=$(curl --request POST 'https://api.atlassian.com/oauth/token' \
 
 # echo $access_token
 
-$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/cloud/$cloud_id/bulk" \
+response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/cloud/$cloud_id/bulk" \
 --header "From: ${email_id:-leave-me-alone}" \
 --header "Authorization: Bearer $access_token" \
 --header 'Content-Type: application/json' \
@@ -43,7 +48,7 @@ $(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/cloud/$clo
         {
           \"associationType\": \"issueIdOrKeys\",
           \"values\": [
-            \"TST-11\"
+            \"$issue_key\"
           ]
         }
       ],
@@ -65,3 +70,5 @@ $(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/cloud/$clo
     }
   ]
 }")
+
+echo $response
