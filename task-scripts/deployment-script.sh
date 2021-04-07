@@ -14,7 +14,9 @@ commit_name=$(git log -1 --pretty=%B)
 echo $commit_name
 issue_key=''
 pattern='^[a-zA-Z]+-[0-9]+'
-issue_key= if [[ $commit_name =~ $pattern ]]; then echo ${BASH_REMATCH[0]}; fi
+if [[ $commit_name =~ $pattern ]]; then 
+    issue_key= echo ${BASH_REMATCH[0]} 
+fi
 echo $issue_key
 
 cloud_id=$(\
