@@ -13,9 +13,8 @@ git checkout -b main
 commit_name=$(git log -1 --pretty=%B)
 # echo $commit_name
 issue_key=''
-if [[ $commit_name =~ ^[a-zA-Z]+-[0-9]+ ]]; then
-        issue_key= echo "${BASH_REMATCH[0]}"
-fi
+[[ $commit_name =~ ^[a-zA-Z]+-[0-9]+ ]]
+issue_key=$(echo "${BASH_REMATCH[0]}")
 echo $issue_key
 
 cloud_id=$(\
