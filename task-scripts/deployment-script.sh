@@ -12,9 +12,11 @@ cd concourse-test
 git checkout -b main
 commit_name=$(git log -1 --pretty=%B)
 echo $commit_name
-issue_key=''
 pattern='^[a-zA-Z]+-[0-9]+'
-issue_key=if [[ $commit_name =~ $pattern ]]; echo ${BASH_REMATCH[0]}; fi
+issue_key=''
+if [[ $commit_name =~ $pattern ]]; then
+        issue_key= echo "${BASH_REMATCH[0]}"
+fi
 echo $issue_key
 
 cloud_id=$(\
