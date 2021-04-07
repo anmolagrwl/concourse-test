@@ -73,4 +73,4 @@ response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/c
 }")
 
 echo $response
-echo ${BUILD_PIPELINE_NAME}
+echo $BUILD_PIPELINE_NAME
