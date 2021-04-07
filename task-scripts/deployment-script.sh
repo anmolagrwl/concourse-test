@@ -11,13 +11,13 @@ git clone https://github.com/anmolonruby/concourse-test
 cd concourse-test
 git checkout -b main
 commit_name=$(git log -1 --pretty=%B)
-# echo $commit_name
+echo $commit_name
+issue_key=''
 pattern='^[a-zA-Z]+-[0-9]+'
-[[ $commit_name =~ $pattern ]]
-# issue_key=$(echo "${BASH_REMATCH[0]}")
-# echo $issue_key
-echo BASH_REMATCH[0]
-echo BASH_REMATCH[1]
+if [[ $commit_name =~ $pattern ]]; then
+        issue_key= echo "${BASH_REMATCH[0]}"
+fi
+echo $issue_key
 
 cloud_id=$(\
   curl "${JIRA_INSTANCE}/_edge/tenant_info" | \
