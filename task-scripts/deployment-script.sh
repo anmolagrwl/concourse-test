@@ -6,7 +6,8 @@ echo $JIRA_INSTANCE
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
 pwd
-git branch
+git init
+git remote add origin https://github.com/anmolonruby/concourse-test.git
 commit_name=$(git log -1 --pretty=%B)
 echo $commit_name
 
