@@ -3,10 +3,7 @@
 # echo "Hello, world!"
 
 # echo $JIRA_INSTANCE
-# export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
-# pwd
-# git init
 git clone https://github.com/anmolonruby/concourse-test
 cd concourse-test
 git checkout -b main
@@ -73,4 +70,4 @@ response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/c
 }")
 
 echo $response
-echo $BUILD_PIPELINE_NAME
+echo "$BUILD_PIPELINE_NAME"
