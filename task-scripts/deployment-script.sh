@@ -16,8 +16,8 @@ pattern='^[a-zA-Z]+-[0-9]+'
 [[ $commit_name =~ $pattern ]]
 # issue_key=$(echo "${BASH_REMATCH[0]}")
 # echo $issue_key
-echo "${BASH_REMATCH[0]}"
-echo "${BASH_REMATCH[1]}"
+echo BASH_REMATCH[0]
+echo BASH_REMATCH[1]
 
 cloud_id=$(\
   curl "${JIRA_INSTANCE}/_edge/tenant_info" | \
