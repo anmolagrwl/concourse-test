@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # echo "Hello, world!"
 
@@ -15,8 +15,7 @@ echo $commit_name
 pattern='^[a-zA-Z]+-[0-9]+'
 issue_key=''
 if [[ $commit_name =~ $pattern ]]; then
-    result=$(BASH_REMATCH[0])
-    issue_key= echo "$result"
+        issue_key= echo "${BASH_REMATCH[0]}"
 fi
 echo $issue_key
 
