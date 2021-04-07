@@ -4,7 +4,6 @@ echo "Hello, world!"
 
 echo $JIRA_INSTANCE
 
-cd ..
 pwd
 commit_name=$(env -i git log -1 --pretty=%B)
 echo $commit_name
