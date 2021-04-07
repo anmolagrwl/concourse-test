@@ -4,10 +4,10 @@ echo "Hello, world!"
 
 echo $JIRA_INSTANCE
 
-# cd ..
-# pwd
-# commit_name=$(env -i git log -1 --pretty=%B)
-# echo $commit_name
+cd ..
+pwd
+commit_name=$(env -i git log -1 --pretty=%B)
+echo $commit_name
 
 cloud_id=$(\
   curl "${JIRA_INSTANCE}/_edge/tenant_info" | \
