@@ -14,7 +14,7 @@ commit_name=$(git log -1 --pretty=%B)
 # echo $commit_name
 issue_key=''
 if [[ $commit_name =~ ^[a-zA-Z]+-[0-9]+ ]]; then
-        issue_key=${BASH_REMATCH[0]}
+        issue_key= echo "${BASH_REMATCH[0]}"
 fi
 echo $issue_key
 
