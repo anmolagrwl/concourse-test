@@ -6,8 +6,8 @@ echo $JIRA_INSTANCE
 
 pwd
 git branch
-# commit_name=$(git log -1 --pretty=%B)
-# echo $commit_name
+commit_name=$(git log -1 --pretty=%B)
+echo $commit_name
 
 cloud_id=$(\
   curl "${JIRA_INSTANCE}/_edge/tenant_info" | \

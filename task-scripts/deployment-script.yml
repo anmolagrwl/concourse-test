@@ -3,7 +3,7 @@ platform: linux
 
 image_resource:
   type: docker-image
-  source: {repository: anmolonruby/alpine-curl-jq-git}
+  source: {repository: dwdraju/alpine-curl-jq}
 
 inputs:
 - name: task-scripts
