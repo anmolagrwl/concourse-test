@@ -53,7 +53,7 @@ response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/c
       \"updateSequenceNumber\": 1,
       \"associations\": [
         {
-          \"associationType\": \"issueIdOrKeys\",
+          \"associationType\": "issueIdOrKeys",
           \"values\": [
             "$issue_key"
           ]
