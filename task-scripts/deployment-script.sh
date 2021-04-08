@@ -7,6 +7,12 @@
 pwd
 ls -la
 
+url=$(cat metadata/atc_external_url)
+team=$(cat metadata/build_team_name)
+pipeline=$(cat metadata/build_pipeline_name)
+job=$(cat metadata/build_job_name)
+build=$(cat metadata/build_name)
+
 git clone https://github.com/anmolonruby/concourse-test
 cd concourse-test
 git checkout -b main
@@ -43,7 +49,7 @@ response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/c
 --data-raw "{
   \"deployments\": [
     {
-      \"deploymentSequenceNumber\": 23,
+      \"deploymentSequenceNumber\": $build,
       \"updateSequenceNumber\": 1,
       \"associations\": [
         {
@@ -53,15 +59,15 @@ response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/c
           ]
         }
       ],
-      \"displayName\": \"random name\",
-      \"url\": \"http://example.com\",
+      \"displayName\": \"$job\",
+      \"url\": \"$url/teams/$team/pipelines/$pipeline/jobs/$job\",
       \"description\": \"Updating APIs to v2.9\",
       \"lastUpdated\": \"2021-03-02T23:29:23.000Z\",
       \"state\": \"successful\",
       \"pipeline\": {
-        \"id\": \"gfhd12hj33fdy\",
-        \"displayName\": \"pipeline name\",
-        \"url\": \"http://example.com/pipeline/gfhd12hj33fdy\"
+        \"id\": \"$pipeline\",
+        \"displayName\": \"$pipeline\",
+        \"url\": \"$url/teams/$team/pipelines/$pipeline/jobs/$job/builds/$build"
       },
       \"environment\": {
         \"id\": \"prod123\",
