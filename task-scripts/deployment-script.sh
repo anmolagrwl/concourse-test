@@ -67,7 +67,7 @@ response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/c
       \"pipeline\": {
         \"id\": \"$pipeline\",
         \"displayName\": \"$pipeline\",
-        \"url\": \"$url/teams/$team/pipelines/$pipeline/jobs/$job/builds/$build"
+        \"url\": \"$url/teams/$team/pipelines/$pipeline/jobs/$job/builds/$build\"
       },
       \"environment\": {
         \"id\": \"prod123\",
