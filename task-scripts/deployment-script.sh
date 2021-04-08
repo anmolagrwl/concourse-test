@@ -22,9 +22,9 @@ echo "$commit_name"
 pattern='^[a-zA-Z]+-[0-9]+'
 issue_key=''
 if [[ $commit_name =~ $pattern ]]; then
-        issue_key= echo "${BASH_REMATCH[0]}" | xargs
+        issue_key=$(echo "${BASH_REMATCH[0]}" | xargs)
 fi
-echo "$issue_key"
+echo $issue_key
 
 cloud_id=$(\
   curl "${JIRA_INSTANCE}/_edge/tenant_info" | \
@@ -56,7 +56,7 @@ response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/c
         {
           \"associationType\": \"issueIdOrKeys\",
           \"values\": [
-            \"TST-11\"
+            \"$issue_key\"
           ]
         }
       ],
