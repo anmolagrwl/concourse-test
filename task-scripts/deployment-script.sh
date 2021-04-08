@@ -12,6 +12,7 @@ team=$(cat metadata/build_team_name)
 pipeline=$(cat metadata/build_pipeline_name)
 job=$(cat metadata/build_job_name)
 build=$(cat metadata/build_name)
+pipeline_url="$url/teams/$team/pipelines/$pipeline/jobs/$job/builds/$build"
 
 git clone https://github.com/anmolonruby/concourse-test
 cd concourse-test
@@ -53,9 +54,9 @@ response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/c
       \"updateSequenceNumber\": 1,
       \"associations\": [
         {
-          \"associationType\": "issueIdOrKeys",
+          \"associationType\": \"issueIdOrKeys\",
           \"values\": [
-            "$issue_key"
+            \"$issue_key\"
           ]
         }
       ],
@@ -67,7 +68,7 @@ response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/c
       \"pipeline\": {
         \"id\": \"$pipeline\",
         \"displayName\": \"$pipeline\",
-        \"url\": \"$url/teams/$team/pipelines/$pipeline/jobs/$job/builds/$build\"
+        \"url\": \"$pipeline_url\"
       },
       \"environment\": {
         \"id\": \"prod123\",
