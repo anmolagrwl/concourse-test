@@ -22,7 +22,7 @@ echo "$commit_name"
 pattern='^[a-zA-Z]+-[0-9]+'
 issue_key=''
 if [[ $commit_name =~ $pattern ]]; then
-        issue_key= echo "${BASH_REMATCH[0]}"
+        issue_key= echo "${BASH_REMATCH[0]}" | xargs
 fi
 echo "$issue_key"
 
