@@ -56,7 +56,7 @@ response=$(curl --request POST "https://api.atlassian.com/jira/deployments/0.1/c
         {
           \"associationType\": \"issueIdOrKeys\",
           \"values\": [
-            \"$issue_key\"
+            \"TST-11\"
           ]
         }
       ],
